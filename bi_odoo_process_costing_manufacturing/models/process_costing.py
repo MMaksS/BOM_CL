@@ -33,7 +33,8 @@ class MrpBom(models.Model):
         for line in self:
             line.currency_id = res_user_id.company_id.currency_id
             
-    bom_material_cost_ids = fields.One2many("mrp.bom.material.cost","mrp_bom_material_id","Material Cost",copy=true)
+    bom_material_cost_ids = fields.One2many("mrp.bom.material.cost","mrp_bom_material_id","Material Cost")
+    bom_material_cost_ids = fields.One2many(copy=True)
     bom_labour_cost_ids = fields.One2many("mrp.bom.labour.cost","mrp_bom_labour_id","Labour Cost")
     bom_overhead_cost_ids = fields.One2many("mrp.bom.overhead.cost","mrp_bom_overhead_id","Overhead Cost")
     # single page total cost
